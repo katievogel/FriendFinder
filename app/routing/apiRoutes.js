@@ -1,46 +1,61 @@
 var usersArray = require("../data/friends");
-var newFriend = require("../data/new-friend")
+//var newFriend = require("../data/new-friend")
 
-module.exports = function(app) {
-  
-    app.get("/api/friends", function(req, res) {
-      res.json(usersArray);
-    
+module.exports = function (app) {
+
+  app.get("/api/friends", function (req, res) {
+    res.json(usersArray);
+  });
+  app.post("/api/friends", function (req, res) {
+    console.log(req.url);
+    console.log(req.body);
+    // for (var i = 0; i < usersArray.length; i++) {
+    //   if (newFriend[0] !== usersArray[i]) {
+    //     usersArray.push(req.body);
+    //   }
+    //   else {
+    //     console.log("Already entered a profile");
+    //   }
+    // }
+    var totalScoreDiff = 0;
+    var gamerMatch = {
+      name: "",
+      photo: "",
+      minDiff: 50
+    };
+
+    var newFriend = req.body;
+    var newFriendName = newFriend.name;
+    var newFriendScores = newFriend.scores;
+
+    var parsedScores = newFriendScores.map(function (item) {
+      return parseInt(item, 10);
     });
 
-    app.get("/api/new-friend", function(req, res) {
-      res.json(newFriend);
-    });
-   
-    app.post("/api/friends", function(req, res) {
-      console.log(req.url);
-      console.log(req.body);
-      res.json(true);
-      for (var i = 0; i < usersArray.length; i++) {
-        if (newFriend[0] !== usersArray[i]) {
-          usersArray.push(req.body);
-        }
-        else {
-          console.log("Already entered a profile");
-        }
-      }});
-  //   var newUser=req.body.scores;
-  //   for(var i = 0; i < newFriend.scores.length; i++) {
-  //     usersArray.scores[i] = parseInt(usersArray.scores[i]);
-  //   }
-  //   var gamerMatch = 0;
-  //   var minDiff = 40;
-  //   for(var i = 0; i < usersArray.length; i++) {
-  //     var totalDiff = 0;
-  //     for(var j = 0; j < usersArray[i].scores.length; j++) {
-  //       var scoreDiff = Math.abs(newFriend.scores[j] - usersArray[i].scores[j]);
-  //       totalDiff += scoreDiff;
-  //     }
-  //     if(totalDiff < minDiff) {
-  //       gamerMatch = i;
-  //       minDiff = totalDiff;
-  //     }
-  //   }
-  //   usersArray.push(newFriend);
-  //   res.json(usersArray[gamerMatch]);
-  };
+    newFriend = {
+      name: req.body.name,
+      photo: req.body.photo,
+      scores: parsedScores
+    };
+    console.log("Name: " + newFriendName);
+    console.log("New Friend Score: " + newFriendScores);
+
+    var newFriendScoreSum = parsedScores.reduce((a, b) => a + b, 0);
+    console.log("Sum of Scores: " + newFriendScoreSum);
+
+    for (var i = 0; i < usersArray.length; i++) {
+      var gamerBudScore = usersArray[i].scores.reduce((a, b) => a + b, 0);
+      totalScoreDiff += Math.abs(newFriendScoreSum - gamerBudScore);
+      console.log("Difference of scores: " + totalScoreDiff);
+
+      if (totalScoreDiff <= gamerMatch.minDiff) {
+        gamerMatch.name = usersArray[i].name;
+        gamerMatch.photo = usersArray[i].photo;
+        gamerMatch.minDiff = totalScoreDiff;
+      }
+    }
+    console.log(gamerMatch);
+    usersArray.push(newFriend);
+    res.send(gamerMatch);
+  }) 
+};

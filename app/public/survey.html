@@ -151,7 +151,7 @@
                     <div class="text-center">
                         <button id="submit-button" type="submit" class="btn btn-success btn-lg">Submit</button>
                     </div>
-                    <div id="gamer-bud-modal" class="modal fade" role="dialog">
+                    <div id="gamer-match-modal" class="modal fade" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -159,8 +159,8 @@
                                     <h3 class="modal-title">Player 2 has Entered the Game</h3>
                                 </div>
                                 <div class="modal-body">
-                                    <h2 id="gamer-bud-name"></h2>
-                                    <img id="game-bud-image" src="#">
+                                    <h2 id="gamer-match-name"></h2>
+                                    <img id="gamer-match-photo" src="#">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -208,12 +208,12 @@
 			};
 			var currentURL = window.location.origin;
 			$.post(currentURL + "/api/friends", newFriend, function(data) {
-				$("#gamer-bud-name").text(data.name);
-				$("#gamer-bud-photo").attr("src", data.photo);
-				$("#gamer-bud-modal").modal("toggle");
+				$("#gamer-match-name").text(data.name);
+				$("#gamer-match-photo").attr("src", data.photo);
+				$("#gamer-match-modal").modal("toggle");
 			});
 		} else {
-			alert("Survey is incomplete!");
+			alert("Survey is incomplete!");d
 		}
 	});
 </script>
