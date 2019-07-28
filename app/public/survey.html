@@ -187,9 +187,9 @@
 		if($("#name").val() === "" || $("#photo").val() === "") {
 			valid = false;
 		} else if($("#quest1").val() === "empty" || $("#quest2").val() === "empty" || $("#quest3").val() === "empty" || $("#quest4").val() === "empty" || $("#quest5").val() === "empty" || $("#quest6").val() === "empty" || $("#quest7").val() === "empty" || $("#quest8").val() === "empty" || $("#quest9").val() === "empty" || $("#quest10").val() === "empty") {
-			valid = false;
+			valid = true;
 		}
-		if(valid === true) {
+		if(true) {
 			var newFriend = {
 				name: $("#name").val().trim(),
 				photo: $("#photo").val().trim(),
@@ -207,7 +207,7 @@
 				]
 			};
 			var currentURL = window.location.origin;
-			$.post(currentURL + "/api/friends", newUser, function(data) {
+			$.post(currentURL + "/api/friends", newFriend, function(data) {
 				$("#gamer-bud-name").text(data.name);
 				$("#gamer-bud-photo").attr("src", data.photo);
 				$("#gamer-bud-modal").modal("toggle");
