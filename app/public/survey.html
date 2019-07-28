@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Friend Finder Home</title>
+    <title>Game Budz Survey</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
         integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -16,12 +16,9 @@
     <div class="container">
         <div class="jumbotron">
             <h1 class="text-center">
-                Friend Finder
+                Game Budz!
             </h1>
             <div class="text-center">
-                <a href="/survey"><button type="button" class="btn btn-lg btn-danger">
-                        Take the Survey
-                    </button></a>
                 <a href="/"><button type="button" class="btn btn-lg btn-default">
                         Home</button></a>
             </div>
@@ -30,32 +27,194 @@
         <div class="row">
             <div class="col-lg-12">
             </div>
+            <div class="container content">
+                    <h1>Survey</h1>
+                    <p>Take this 10 question quiz to find your perfect gamer buddy! Answer the question from strongly agree to strongly disapgree to be paired with the person you share the closest game interests in.</p>
+                    <form>
+                        <div class="form-group">
+                            <input id="name" type="text" class="form-control" placeholder="Name (Required)">
+                        </div>
+                        <div class="form-group">
+                            <input id="photo" type="text" class="form-control" placeholder="Link to Profile Photo (Required)">
+                        </div>
+                        <div class="form-group">
+                            <label for="question1">I prefer electronic games.</label>
+                            <select class="form-control" id="quest1">
+                                <option value="empty"></option>
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3">Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="question2">I like board games.</label>
+                            <select class="form-control" id="quest2">
+                                <option value="empty"></option>
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3">Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="question3">I prefer card games</label>
+                            <select class="form-control" id="quest3">
+                                <option value="empty"></option>
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3">Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="question4">I like strategy games.</label>
+                            <select class="form-control" id="quest4">
+                                <option value="empty"></option>
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3">Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="question5">I like party games.</label>
+                            <select class="form-control" id="quest5">
+                                <option value="empty"></option>
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3">Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="question6">I like puzzles.</label>
+                            <select class="form-control" id="quest6">
+                                <option value="empty"></option>
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3">Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="question7">I like slower-paced stroy driven games.</label>
+                            <select class="form-control" id="quest7">
+                                <option value="empty"></option>
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3">Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="question8">I like fast-paced stimulating games.</label>
+                            <select class="form-control" id="quest8">
+                                <option value="empty"></option>
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3">Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="question9">I like mathmatical skill games.</label>
+                            <select class="form-control" id="quest9">
+                                <option value="empty"></option>
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3">Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="question10">I sports focused games.</label>
+                            <select class="form-control" id="quest10">
+                                <option value="empty"></option>
+                                <option value="1">Strongly Disagree</option>
+                                <option value="2">Disagree</option>
+                                <option value="3">Neutral</option>
+                                <option value="4">Agree</option>
+                                <option value="5">Strongly Agree</option>
+                            </select>
+                        </div>
+                    </form>
+                    <div class="text-center">
+                        <button id="submit-button" type="submit" class="btn btn-success btn-lg">Submit</button>
+                    </div>
+                    <div id="gamer-bud-modal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h3 class="modal-title">Player 2 has Entered the Game</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <h2 id="bestFriend"></h2>
+                                    <img id="bestFriendPhoto" src="#">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
 
-        <footer class="footer">
-            <div class="container">
-                <a href="/api/survey">API Table Link</a> |
-                </p>
-            </div>
-        </footer>
     </div>
-    <script type="text/javascript">
-        function getMatches() {
-            $.get("/api/survey", function (data) {
-
-                for (i = 0; i < data.length; i++) {
-                    var tableNumber = i + 1;
-
-                    var tableSection = $("<div>");
-                    tableSection.addClass("container")
-                    tableSection.attr("id", "tableContainer - " + tableNumber);
-                    $(tableSection).append("<h2><span class ='label label-primary'>" + tableNumber + "</span> | " + data[i].customerID + "</h2>")
-                    $("#tableSection").append(tableSection);
-                }
-            });
-        }
-        getMatches();
-    </script>
+    <script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
+</html>
 
+<script type="text/javascript">
+	$("#submit-button").on("click", function(event) {
+		event.preventDefault();
+		var valid = true;
+		if($("#name").val() === "" || $("#photo").val() === "") {
+			valid = false;
+		} else if($("#quest1").val() === "empty" || $("#quest2").val() === "empty" || $("#quest3").val() === "empty" || $("#quest4").val() === "empty" || $("#quest5").val() === "empty" || $("#quest6").val() === "empty" || $("#quest7").val() === "empty" || $("#quest8").val() === "empty" || $("#quest9").val() === "empty" || $("#quest10").val() === "empty") {
+			valid = false;
+		}
+		if(valid === true) {
+			var newFriend = {
+				name: $("#name").val().trim(),
+				photo: $("#photo").val().trim(),
+				scores: [
+					$("#quest1").val(),
+					$("#quest2").val(),
+					$("#quest3").val(),
+					$("#quest4").val(),
+					$("#quest5").val(),
+					$("#quest6").val(),
+					$("#quest7").val(),
+					$("#quest8").val(),
+					$("#quest9").val(),
+					$("#quest10").val()
+				]
+			};
+			var currentURL = window.location.origin;
+			$.post(currentURL + "/api/friends", newUser, function(data) {
+				$("#gamer-bud-name").text(data.name);
+				$("#gamer-bud-photo").attr("src", data.photo);
+				$("#gamer-bud-modal").modal("toggle");
+			});
+		} else {
+			alert("Survey is incomplete!");
+		}
+	});
+</script>
 </html>

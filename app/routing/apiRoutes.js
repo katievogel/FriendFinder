@@ -28,3 +28,23 @@ module.exports = function(app) {
         }
       }});
     };
+
+    var newUser = req.body;
+    for(var i = 0; i < newUser.scores.length; i++) {
+      user.scores[i] = parseInt(user.scores[i]);
+    }
+    var gamerMatch = 0;
+    var minDiff = 40;
+    for(var i = 0; i < friends.length; i++) {
+      var totalDiff = 0;
+      for(var j = 0; j < friends[i].scores.length; j++) {
+        var scoreDiff = Math.abs(newUser.scores[j] - friends[i].scores[j]);
+        totalDiff += scoreDiff;
+      }
+      if(totalDiff < minDiff) {
+        bestFriendIndex = i;
+        minDiff = totalDiff;
+      }
+    }
+    friends.push(newUser);
+    res.json(friends[gamerMatch]);
