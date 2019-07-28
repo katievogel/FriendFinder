@@ -1,0 +1,17 @@
+.content {
+    max-width: 900px;
+    margin: auto;
+}
+
+.col-lg-12 {
+    max-width: 900px;
+    margin: auto;
+}
+
+img {
+    max-width: 300px;
+}
+
+.jumbotron {
+    font-family: 'Bungee Outline', cursive;
+}
