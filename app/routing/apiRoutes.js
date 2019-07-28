@@ -13,11 +13,11 @@ module.exports = function(app) {
     app.get("/api/new-friend", function(req, res) {
       res.json(newUserData);
     });
-
+   
     app.post("/api/friends", function(req, res) {
       for (var i = 0; i < usersArray.length; i++) {
         if (newFriend[0] !== usersArray[i]) {
-          friends.push(req.body);
+          userData.push(req.body);
           res.json(true);
           empty();
         }
@@ -27,24 +27,23 @@ module.exports = function(app) {
           empty();
         }
       }});
-    };
-
-    var newUser = req.body;
-    for(var i = 0; i < newUser.scores.length; i++) {
-      user.scores[i] = parseInt(user.scores[i]);
+    var newUser=req.body.scores;
+    for(var i = 0; i < newUserData.scores.length; i++) {
+      userData.scores[i] = parseInt(userData.scores[i]);
     }
     var gamerMatch = 0;
     var minDiff = 40;
-    for(var i = 0; i < friends.length; i++) {
+    for(var i = 0; i < userData.length; i++) {
       var totalDiff = 0;
-      for(var j = 0; j < friends[i].scores.length; j++) {
-        var scoreDiff = Math.abs(newUser.scores[j] - friends[i].scores[j]);
+      for(var j = 0; j < userData[i].scores.length; j++) {
+        var scoreDiff = Math.abs(newUserData.scores[j] - userData[i].scores[j]);
         totalDiff += scoreDiff;
       }
       if(totalDiff < minDiff) {
-        bestFriendIndex = i;
+        gamerMatch = i;
         minDiff = totalDiff;
       }
     }
-    friends.push(newUser);
-    res.json(friends[gamerMatch]);
+    userData.push(newUserData);
+    res.json(userData[gamerMatch]);
+  };
